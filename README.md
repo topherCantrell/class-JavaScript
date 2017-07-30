@@ -15,3 +15,18 @@ Also in session 1:
 
 Also in session 3:
 * Asteroids DOM shooter
+
+
+5:00 - 5:15 solution to last lab
+
+5:15 - 6:15 first lecture
+
+6:15 - 6:30 break
+
+6:30 - 7:30 second lecture
+
+7:30 - 7:45 break
+
+7:45 - 8:30 lab
+
+On virtual machine -- all 3 browsers, notepad++
