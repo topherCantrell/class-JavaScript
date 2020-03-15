@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+    <head>
+        <title>Exercise 2</title>
+        
+        <script>
+        
+        	function whileTest() {
+        		
+        		// Want a random number?
+        		// https://stackoverflow.com/questions/4959975/generate-random-number-between-two-numbers-in-javascript
+        		// var number = Math.floor(Math.random() * 10) + 1;
+        		
+        		var number = 7;
+        		var guessesRemaining = 3;
+        		var answer = 0;
+        		// while(number != answer) {  // Use this to loop until the number is guessed
+        		while(number != answer && guessesRemaining != 0) {
+        			answer = prompt("Guess my number between 1 and 10: ");    
+        			guessesRemaining = guessesRemaining - 1;
+        		}
+        		
+        		if(number == answer) {
+        			alert("You got it! I was thinking of "+number+".");
+        		} else {
+        			alert("Sorry, you are out of guesses.");
+        		}
+        		
+        	}
+        	
+        </script>
+        
+    </head>
+
+    <body>    
+    
+    <!-- One way to run the function ... just click the button -->
+    <button onclick="whileTest()">Guess my Number</button>
+    
+    <!-- Another way to run the function ... when the page has loaded -->
+    <script>
+        window.addEventListener('load', (event) => {
+           whileTest();         
+        });        
+    </script>
+
+    </body>
+    
+</html>
