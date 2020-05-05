@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0077)https://s3.amazonaws.com/jigyaasa_download/CIW/Lesson07/lesson7AppProject.htm -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Lesson 7 Application Project</title>
+
+<script language="javascript">
+
+function validate(form) {
+	
+	// First, get all the values from the form	
+	var cardType = form.ccard.value;
+	var cardNumber = form.number.value;
+	var cardMonth = form.expMo.value;
+	var cardYear = form.expYr.value;
+	
+	// We'll compare the date to "now"
+	var now = new Date();
+	var nowMonth = now.getMonth();
+	var nowYear = now.getFullYear();
+	
+	// Check for empty fields
+	
+	if (cardType=='') {
+		alert('Please select a card type.');
+		return;
+	}
+	
+	if (cardNumber=='') {
+		alert('Please enter a card number.');
+		return;
+	}
+	
+	// Check the date
+	
+	if (cardYear<nowYear) {
+		// If the years are different, the month doesn't matter.
+		// Of course, if previous years are not in the list then this
+		// check can be left out.
+		alert('Card date has expired. Please use a different card.');
+		return;
+	}	
+	if (cardYear==nowYear && cardMonth<nowMonth) {
+		// If the years are the same, we have to check the month.
+		alert('Card date has expired. Please use a different card.');
+        return;
+	}
+	
+	// Check the card number
+	
+	if (cardType=='visa') {
+		// Visa card numbers always begin with the numeral 4 and use 16 digits.		 
+		if(cardNumber[0]!=4 || cardNumber.length!=16) {
+			alert('Invalid Visa card. Please try again.');
+			return;
+		}
+	} else if(cardType=='mc') {
+		// MasterCard numbers always begin with the numeral 5 and use 16 digits.
+		if(cardNumber[0]!=5 || cardNumber.length!=16) {
+            alert('Invalid MasterCard card. Please try again.');
+            return;
+        }
+	} else {
+		// American Express card numbers always begin with the numeral 3 and use 15
+		if(cardNumber[0]!=3 || cardNumber.length!=15) {
+            alert('Invalid AmericanExpress card. Please try again.');
+            return;
+        }		
+	}		
+	
+	alert('Everything is OK');
+    
+}
+
+</script>
+
+</head>
+
+<body>
+
+<h3>CIW JavaScript Specialist</h3>
+<hr>
+<form name="ccForm">
+<p>
+<input type="radio" name="ccard" value="visa">
+Visa
+</p>
+<p>
+<input type="radio" name="ccard" value="mc">
+MasterCard
+</p>
+<p>
+<input type="radio" name="ccard" value="amex">
+American Express
+</p>
+<p>
+Card # 
+<input type="text" name="number">
+</p>
+<p>
+Exp Date: 
+<select name="expMo">
+<option value="0">Jan
+</option><option value="1">Feb
+</option><option value="2">Mar
+</option><option value="3">Apr
+</option><option value="4">May
+</option><option value="5">Jun
+</option><option value="6">Jul
+</option><option value="7">Aug
+</option><option value="8">Sep
+</option><option value="9">Oct
+</option><option value="10">Nov
+</option><option value="11">Dec
+</option></select> 
+<select name="expYr">
+<option value="2019">2019
+</option><option value="2020">2020
+</option><option value="2021">2021
+</option><option value="2022">2022
+</option><option value="2023">2023
+</option><option value="2024">2023
+</option><option value="2025">2025
+</option></select>
+</p>
+
+<input type="button" value="Check Form" onclick="validate(this.form);">
+<input type="reset" value="Reset Form">
+</form>
+
+
+
+</body></html>
