@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Your Toast</title>
+
+<script>
+
+function Toaster(modelName,description,capacity,power,price) {
+    
+    // These are the attributes of a toaster
+    this.modelName = modelName;
+    this.description = description;
+    this.capacity = capacity;
+    this.power = power;
+    this.price = price;
+    
+    // This "to-string" function makes a displayable string with
+    // all the toaster information.
+    this.getPrintInfo = function() {
+        var info = "";
+        info += "Model: "+this.modelName+" $"+this.price+"\n\n";
+        info += this.description + "\n\n";
+        info += "Capacity: " + this.capacity +  "\n";
+        info += "Power: " + this.power + "\n";      
+        return info;
+    }   
+    
+}
+
+// A function for the "sort" method. This compares 2 toasters and 
+// returns 1, -1, or 0 based on their model name.
+function compareToasters(a,b) {
+    if(a.modelName<b.modelName) {
+        return -1;
+    }
+    if(a.modelName>b.modelName) {
+        return 1;
+    }
+    return 0;
+}
+
+// When the "More info" button is pressed, we come here to pop-up the info
+function showInfo(index) {
+    alert(ourToasters[index].getPrintInfo());
+}
+
+// Build our list of toaster models
+var ourToasters = new Array();
+ourToasters[0] = new Toaster('Classic','No frills','2 slices of bread','wall plug', 10.00);
+ourToasters[1] = new Toaster('Mr. Fusion','Complete with web interface','5 slices of bread','cold fusion reactor', 1000.00);
+ourToasters[2] = new Toaster('Dorm','Perfect for the college student','1 slice of bread','Place on top of hot iron', 7.50);
+ourToasters[3] = new Toaster('Camper','Take me to the woods','1 slice of bread','hangs over camp fire', 5.00);
+
+// Sort the list for display
+ourToasters.sort(compareToasters);
+
+</script>
+
+</head>
+
+<body>
+
+    <p style="text-align: center">
+    <img src="toaster.jpg">
+    </p>
+	<h1 style="text-align: center">Your Toast (is ready)!</h1>
+	
+	<hr />
+	
+	<p>We have a large selection of toasters to pick from. Choose a model in
+	   the list below to see more information.</p>
+	   
+	<table id='toasterList'>
+	<!-- Rows in the table should look like this. We'll built them dynamically in the JS.
+	    <tr><td>Crisper</td><td><button onclick='showInfo(0)'>More info</button></td>
+	 -->
+	 <script>
+	 // Build the table element with JS by writing to the document
+	 for(var i=0;i<ourToasters.length;++i) {
+		 t = ourToasters[i];
+		 document.write("<tr><td>"+t.modelName+"</td><td><button onclick='showInfo("+i+")'>More info</button></td></tr>")		 
+	 }
+	 </script>
+	</table>	   
+	
+</body>
+</html>
