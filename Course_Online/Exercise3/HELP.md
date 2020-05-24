@@ -195,7 +195,7 @@ function validate(form) {
 
 # Check the date
 
-Before we say "Everything is OK" we need to check the date. The value of the month only matters if we are in the same year. January of 2020 is before June of 2020 but when comparing the years 2021 and 2020, the month is unimportant).
+Before we say "Everything is OK" we need to check the date. The value of the month only matters if we are in the same year. January of 2020 is before June of 2020 but when comparing the years 2021 and 2020, the month is unimportant.
 
 Note that there aren't any "previous year" values in the list of years. We don't even let the user select an invalid year. But it doesn't hurt to check, right?
 
