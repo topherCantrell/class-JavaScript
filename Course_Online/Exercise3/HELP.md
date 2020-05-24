@@ -220,7 +220,7 @@ Again, if we bump into an error we just print the message and `return` from the 
 
 # Some friendly feedback
 
-That's all we have to do, but I'm going to add some friendlier feedback at the top of the form. For the special case of "no numbered entered" we can give better feedback than "Invalid card". How about:
+That's all we have to do, but I'm going to add some friendlier feedback at the top of the form. For the special case of "no card number entered" we can give better feedback than "Invalid card". How about:
 
 ```js
     if (cardNumber=='') {
