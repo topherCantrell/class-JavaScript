@@ -88,7 +88,7 @@ I reload the form again and click "Check Form". Sure enough, I get two alerts: t
 
 # Validating the card rules
 
-The exercise lists the rules for each card. The first thing I need to do is make an `if` statement to handle the different possible values. I'll just put alerts in those for now -- just to make sure my logic is working.
+The exercise lists the rules for each card. The first thing I need to do is make an `if` statement to handle the different possible card types. I'll just put alerts in those for now -- just to make sure my logic is working.
 
 You might want to review the material `Section 4 The if...else Statement`. It shows how to do an if/else-if block like this:
 
